@@ -4,6 +4,7 @@ use App\Models\Categories;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DishController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RoleContoller;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SearchController;
@@ -21,9 +22,9 @@ use App\Http\Controllers\WorkerController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -54,3 +55,13 @@ Route::get('/search',[DishController::class,'search'])->name('searchdish');
 Route::get('/searchcategory',[CategoryController::class,'search'])->name('searchcategory');
 Route::get('/searchworker',[WorkerController::class,'search'])->name('searchworker');
 Route::get('/searchrole',[RoleController::class,'search'])->name('searchrole');
+
+//order sumbit
+Route::get('/',[OrderController::class,'index'])->name('orderindex');
+Route::post('/ordersubmit',[OrderController::class,'submit'])->name('ordersubmit');
+
+//order to kitchen panel
+Route::get('/kitchen',[OrderController::class,'order'])->name('kitchenorder');
+Route::get('/kitchen/{order}/approve',[OrderController::class,'approve']);
+Route::get('/kitchen/{order}/cancel',[OrderController::class,'cancel']);
+Route::get('/kitchen/{order}/done',[OrderController::class,'done']);

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Tables extends Model
 {
     use HasFactory;
+
+    
 }

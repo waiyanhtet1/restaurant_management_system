@@ -47,7 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="#" class="brand-link">
       <img src="/dist/img/breakfast_psiw.svg" alt="AdminLTE Logo" class="brand-image img-circle elevation-2 mx-1" style="">
       <span class="brand-text font-weight-light">WYH Restaurant</span>
     </a>

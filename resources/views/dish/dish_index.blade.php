@@ -51,7 +51,9 @@
                           <h3 class="card-title mb-2"><b>{{ $dish->name }}</b></h3>
                           <p class="card-text"><i class="fas fa-chart-pie"></i> {{ $dish->category->name }}</p>
                           <p class="card-text">Price: {{ $dish->price }} Kyts.</p>
-                          <a href="/dishes/{{$dish->id}}/edit" class="btn btn-warning">Edit Info...<i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                        <div class="card-footer">
+                          <a href="/dishes/{{$dish->id}}/edit" class="btn btn-warning form-control">Edit Info...<i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                       </div>
                       </div>
