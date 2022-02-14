@@ -10,4 +10,7 @@ class Tables extends Model
     use HasFactory;
 
     
+    public function order(){
+        return $this->hasMany(Orders::class);
+    }
 }

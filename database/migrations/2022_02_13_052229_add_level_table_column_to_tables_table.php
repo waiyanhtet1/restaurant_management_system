@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropStaffsTable extends Migration
+class AddLevelTableColumnToTablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class DropStaffsTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('staffs');
-        
+        Schema::table('tables', function (Blueprint $table) {
+            $table->string('level_table');
+        });
     }
 
     /**
@@ -24,6 +25,8 @@ class DropStaffsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('tables', function (Blueprint $table) {
+            //
+        });
     }
 }

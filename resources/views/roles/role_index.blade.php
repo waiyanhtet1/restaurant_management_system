@@ -52,8 +52,8 @@
                 <div class="small-box bg-warning shadow-lg">
                   <div class="inner">
                     <h5><b>{{ $role->name }}</b></h5>
-    
-                    <p>Role</p>
+                    <p>Created :</p>
+                    <small>{{$role->created_at->diffForHumans()}}</small>
                   </div>
                   <div class="icon">
                     <i class="fas fa-user"></i>
@@ -65,6 +65,9 @@
               </div>
               @endforeach
             </div>
+            </div>
+            <div class="mx-auto">
+              {{$roles->links()}}
             </div>
           </div>
         </div>

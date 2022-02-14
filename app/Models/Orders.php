@@ -16,4 +16,6 @@ class Orders extends Model
     public function table(){
         return $this->belongsTo(Tables::class);
     }
+
+    
 }

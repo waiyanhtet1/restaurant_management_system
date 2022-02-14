@@ -54,7 +54,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
      <div class="content">
         <div class="row">
             <div class="col-lg">
-                <div class="card">
+                <div class="card shadow-lg">
                   <div class="card-header">
                     <h3 class="card-title">Orders Table</h3>
                   </div>
@@ -65,6 +65,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           <th>Table Number</th>
                           <th>Dish Name</th>
                           <th>Quantity</th>
+                          <th>Ordered At</th>
                           <th>Status</th>
                           <th>Actions</th>
                           <th></th>
@@ -76,6 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td>{{ $order->table->number }}</td>
                         <td>{{ $order->dish->name }}</td>
                         <td>{{ $order->qty }}</td>
+                        <td>{{ $order->created_at->diffForHumans() }}</td>
                         <td>
                             @if ($status[$order->status] == 'new')
                                 <span class="badge bg-success">New</span>
@@ -85,12 +87,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </td>
                         <td>
                          @if ($status[$order->status] == 'new')
-                         <a href="/kitchen/{{$order->id}}/approve" class="btn btn-primary">Approve</a>
+                             <a href="/kitchen/{{$order->id}}/approve" class="btn btn-primary w-60">Approve</a>
                          @else
-                         <a href="/kitchen/{{$order->id}}/done" class="btn btn-success">Done</a>
+                            <a href="/kitchen/{{$order->id}}/done" class="btn btn-success w-60">Done</a>
                          @endif
                         </td>
-                        <td><a href="/kitchen/{{$order->id}}/cancel" class="btn btn-danger">Cancel</a></td>
+                        <td><a href="/kitchen/{{$order->id}}/cancel" class="btn btn-danger w-60">Cancel</a></td>
                         </tr>
                         @endforeach
                       </tbody>

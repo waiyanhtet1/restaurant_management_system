@@ -60,6 +60,7 @@
                         <ul class="ml-4 mb-0 fa-ul text-muted">
                           <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: {{ $worker->content }}</li>
                           <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #:  09 - {{ $worker->phone }}</li>
+                          <li class="small">Register : {{$worker->created_at->diffForHumans()}}</li>
                         </ul>
                       </div>
                       <div class="col-5 text-center">
@@ -82,6 +83,9 @@
               @endforeach
 
               </div>
+            </div>
+            <div class="mx-auto">
+              {{$workers->links()}}
             </div>
           </div>
 

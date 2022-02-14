@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     public function index(){
-        $dishes = Dishes::orderBy('id','desc')->get();
+        $dishes = Dishes::latest()->paginate(8);
         $tables = Tables::all();
         return view('orders.order_index',compact('dishes','tables'));
     }
@@ -25,7 +25,26 @@ class OrderController extends Controller
         $order->status = config('res.orderstatus.new');
         $order->save();
         }
-        return redirect('/')->with('message','New order have been submitted!');
+        return redirect('/waiter')->with('message','New order have been submitted!');
+    }
+
+    public function result(){
+        $rawstatus = config('res.orderstatus');
+        $status = array_flip($rawstatus);
+        $orders = Orders::whereIn('status',[4])->get();
+        return view('orders.order_result',compact('orders','status'));
+    }
+
+    public function serve(Orders $order){
+        $order->status = config('res.orderstatus.having');
+        $order->save();
+        return redirect('/orderresult')->with('message','Order have been serve!');
+    }
+
+    public function servecancel(Orders $order){
+        $order->status = config('res.orderstatus.cancel');
+        $order->save();
+        return redirect('/orderresult')->with('message','Order have been cancel!');
     }
     
     public function order(){

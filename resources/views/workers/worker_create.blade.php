@@ -68,7 +68,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Phone</label>
-                        <input type="number" class="form-control" maxlength="9" placeholder="eg - 123456789" name="workerphone">
+                        <input type="number" class="form-control" maxlength="9" placeholder="eg - 123456789" name="workerphone" value="{{ old('workerphone') }}">
                       </div>
 
                         <button type="submit" class="btn btn-warning w-25 float-right mt-3">Submit</button>

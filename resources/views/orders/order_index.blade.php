@@ -7,6 +7,7 @@
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
+            <h4>Waiter Panel</h4>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -18,7 +19,6 @@
       </div>
     </div>
     <div class="content">
-        <div class="container">
           <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -27,7 +27,7 @@
                             @csrf
                             <div class="row">
                                 @foreach ($dishes as $dish)
-                                <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+                                <div class="col-sm-12 col-md-3 col-lg-3 col-xl-2">
                                 <div class="card shadow-lg" style="width: 11rem; height: 21rem;">
                                   <img src="{{ url('/images/'.$dish->image) }}" style="height: 130px;" class="card-img-top">
                                 <div class="card-body">
@@ -42,7 +42,9 @@
                                 </div>
                                 @endforeach
                               </div>
-          
+                    <div class="" style="display: grid; place-items: center;">
+                      {{$dishes->links()}}
+                    </div>
                 <div class="form-group mt-4">
                     <select name="table" class="form-control w-50">
                         <option value="" disabled selected>Select Table</option>
@@ -57,7 +59,6 @@
                 </div>
             </div>
           </div>
-        </div>
       </div>
 </div>
 @endsection

@@ -22,6 +22,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     {{-- toaster alert --}}
     <link rel="stylesheet" href="/plugins/toastr/toastr.min.css">
+    <!-- Ion Slider -->
+    {{-- <link rel="stylesheet" href="/plugins/ion-rangeslider/css/ion.rangeSlider.min.css"> --}}
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -71,15 +73,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
            
             {{-- Cashing --}}
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/cashing" class="nav-link {{Request::segment(1) == 'cashing' ? 'active bg-white':''}}">
               <i class="fas fa-cash-register m-1"></i>
               <p>Cashing</p>
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="/cashorder" class="nav-link {{Request::segment(1) == 'cashorder' ? 'active bg-white':''}}">
+              <i class="fas fa-cash-register m-1"></i>
+              <p>Order Processing</p>
+            </a>
+          </li>
+
           {{-- Tables Control --}}
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/tables" class="nav-link {{Request::segment(1)=='tables'?'active bg-white':''}}">
                 <i class="fas fa-chair m-1"></i>
               <p>Tables Control</p>
             </a>
@@ -191,6 +200,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- Toastr -->
 <script src="/plugins/toastr/toastr.min.js"></script>
+<!-- Ion Slider -->
+{{-- <script src="/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script> --}}
 
 <script>
      $(function () {
@@ -207,11 +218,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
             @endif
         });
 // validation error message
-      @if(count($errors) > 0)
-          @foreach($errors->all() as $error)
-              toastr.error("{{ $error }}");
-          @endforeach
-      @endif
+    //   @if(count($errors) > 0)
+    //       @foreach($errors->all() as $error)
+    //           toastr.error("{{ $error }}");
+    //       @endforeach
+    //   @endif
+      
+    //   $('#range_6').ionRangeSlider({
+    //   min     : 1,
+    //   max     : 3,
+    //   from    : 1,
+    //   type    : 'single',
+    //   step    : 1,
+    //   postfix : '',
+    //   prettify: false,
+    //   hasGrid : false
+    // })
   </script>
 </body>
 </html>

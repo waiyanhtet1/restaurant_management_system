@@ -1,15 +1,19 @@
 <?php
 
 use App\Models\Categories;
+use App\Http\Livewire\Counter;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DishController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RoleContoller;
+use App\Http\Controllers\CashController;
+use App\Http\Controllers\DishController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\TableController;
 use App\Http\Controllers\SearchController;
-use App\Http\Controllers\SearchDishesController;
 use App\Http\Controllers\WorkerController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SearchDishesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +26,26 @@ use App\Http\Controllers\WorkerController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Auth::routes([
+    'register' => false,
+    'reset' => false,
+    'verify' => false,
+    'confim' => false,
+]);
 
-Auth::routes();
+//cashing
+Route::get('/cashorder',[CashController::class,'cashorder']);
+Route::get('/cashing',[CashController::class,'index']);
+Route::get('/cashing/{table}',[CashController::class,'detail']);
+Route::get('/cashing/{table}/checkout',[CashController::class,'checkout']);
+Route::get('/cashing/{table}/print',[CashController::class,'print']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//table
+Route::get('/tables',[TableController::class,'index']);
+Route::get('/tables/create',[TableController::class,'create'])->name('tablecreate');
+Route::post('/tables',[TableController::class,'store'])->name('tablestore');
+Route::get('/tables/{table}',[TableController::class,'edit'])->name('tableedit');
+Route::put('/tables/{table}',[TableController::class,'update'])->name('tableupdate');
 
 //dish
 Route::resource('/dishes',DishController::class);
@@ -56,12 +73,16 @@ Route::get('/searchcategory',[CategoryController::class,'search'])->name('search
 Route::get('/searchworker',[WorkerController::class,'search'])->name('searchworker');
 Route::get('/searchrole',[RoleController::class,'search'])->name('searchrole');
 
-//order sumbit
-Route::get('/',[OrderController::class,'index'])->name('orderindex');
+//order to waiter panel
+Route::get('/waiter',[OrderController::class,'index'])->name('orderindex');
 Route::post('/ordersubmit',[OrderController::class,'submit'])->name('ordersubmit');
+Route::get('/orderresult',[OrderController::class,'result'])->name('orderresult');
+Route::get('/orderserve/{order}/serve',[OrderController::class,'serve']);
+Route::get('/orderserve/{order}/cancel',[OrderController::class,'servecancel']);
 
 //order to kitchen panel
 Route::get('/kitchen',[OrderController::class,'order'])->name('kitchenorder');
 Route::get('/kitchen/{order}/approve',[OrderController::class,'approve']);
 Route::get('/kitchen/{order}/cancel',[OrderController::class,'cancel']);
 Route::get('/kitchen/{order}/done',[OrderController::class,'done']);
+

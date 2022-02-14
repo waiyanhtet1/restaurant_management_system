@@ -45,12 +45,13 @@
                     <div class="row">
                       @foreach ($dishes as $dish)
                       <div class="col-sm-6 col-md-4 col-lg-3">
-                      <div class="card shadow-lg" style="width: 14rem; height: 21rem;">
+                      <div class="card shadow-lg" style="width: 14rem; height: 23rem;">
                         <img src="{{ url('/images/'.$dish->image) }}" style="height: 130px;" class="card-img-top">
                         <div class="card-body">
                           <h3 class="card-title mb-2"><b>{{ $dish->name }}</b></h3>
                           <p class="card-text"><i class="fas fa-chart-pie"></i> {{ $dish->category->name }}</p>
                           <p class="card-text">Price: {{ $dish->price }} Kyts.</p>
+                          <p class="small">Created: {{$dish->created_at->diffForHumans()}}</p>
                         </div>
                         <div class="card-footer">
                           <a href="/dishes/{{$dish->id}}/edit" class="btn btn-warning form-control">Edit Info...<i class="fas fa-arrow-circle-right"></i></a>
@@ -59,7 +60,9 @@
                       </div>
                       @endforeach
                     </div>
-
+              </div>
+              <div class=" mx-auto">
+                {{ $dishes->links() }}
               </div>
           </div>
             

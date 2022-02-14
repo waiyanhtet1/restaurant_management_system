@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Top Navigation</title>
+  <title>Waiter Panel</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
   {{-- toaster alert --}}
   <link rel="stylesheet" href="/plugins/toastr/toastr.min.css">
+  @livewireStyles
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
@@ -20,7 +21,7 @@
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-warning">
     <div class="container">
-      <a href="/index3.html" class="navbar-brand">
+      <a href="" class="navbar-brand">
         <img src="/dist/img/breakfast_psiw.svg" alt="AdminLTE Logo" class="brand-image img-circle mx-1" style="">
         <span class="brand-text font-weight-light">WYH Restaurant</span>
       </a>
@@ -33,10 +34,10 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="/" class="nav-link">Home</a>
+            <a href="/waiter" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Order Results</a>
+            <a href="/orderresult" class="nav-link">Order Results</a>
           </li>
           {{-- <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
@@ -103,6 +104,7 @@
 <script src="/dist/js/demo.js"></script>
 <!-- Toastr -->
 <script src="/plugins/toastr/toastr.min.js"></script>
+@livewireScripts
 <script>
   // toast alert
     $(document).ready(function() {

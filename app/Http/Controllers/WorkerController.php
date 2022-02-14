@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class WorkerController extends Controller
 {
     public function index(){
-        $workers = Workers::orderBy('id','desc')->get();
+        $workers = Workers::latest()->paginate(6);
         return view('workers.worker_index',compact('workers'));
     }
 

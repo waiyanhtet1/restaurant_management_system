@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class RoleController extends Controller
 {
     public function index(){
-        $roles = Roles::all();
+        $roles = Roles::latest()->paginate(8);
         return view('roles.role_index',compact('roles'));
     }
 

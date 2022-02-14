@@ -50,7 +50,6 @@
                         
                     <div class="info-box-content">
                       <span class="info-box-number">{{ $cat->name }}</span>
-                      {{-- <span class="info-box-text">Shadows</span> --}}
                       <a href="/categories/{{$cat->id}}/edit" class="text-secondary">
                         More info <i class="fas fa-arrow-circle-right"></i>
                       </a>
@@ -59,6 +58,9 @@
                 </div>
                 @endforeach
               </div>
+              </div>
+              <div class="mx-auto">
+                {{$categories->links()}}
               </div>
             </div>
 

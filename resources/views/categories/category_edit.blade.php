@@ -34,6 +34,7 @@
                     <div class="form-group">
                         <label for="">Category Name</label>
                         <input type="text" name="categoryname" class="form-control" value="{{old('categoryname',$category->name)}}">
+                        <small>Created: {{$category->created_at->diffForHumans()}}</small>
                     </div>
                         <button type="submit" class="btn btn-warning w-25 float-right">Edit</button>
                     </form>

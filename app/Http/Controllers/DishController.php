@@ -16,7 +16,7 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dishes::orderBy('id','desc')->get(); 
+        $dishes = Dishes::latest()->paginate(8);
         // dd($dishes->find(3)->category);
         return view('dish.dish_index',compact('dishes'));
     }

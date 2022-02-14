@@ -75,7 +75,7 @@
                         <label for="">Phone</label>
                         <input type="number" class="form-control" maxlength="9" placeholder="eg - 123456789" name="workerphone" value="{{ old('workerphone',$worker->phone) }}">
                       </div>
-
+                      <small>Updated: {{$worker->updated_at->diffForHumans()}}</small>
                         <button type="submit" class="btn btn-warning w-25 float-right mt-3">Submit</button>
                     </form>
                 
